@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+.row row-cols-1 row-cols-md-2{
+    height: 300px;
+}
+
+.mb-4{
+    width: 400px;
+    margin-left: 50px;
+}
+
+.card{
+    width: 300px;
+}
+
+.card-img-top{
+    height: 500px;
+    width: 400px;
+}
+
+
+
+.card-body{
+    text-align: left;
+    width: 300px;
+}
+
+</style>
+
+
+{% for post in posts %}
+    <div class="card-body">
+      <h1>{{ post.name}}</h1>
+      <h3>Age: {{ post.age }}</h3>
+      <h3>Growth: {{ post.growth }}</h3>
+      <h3>Weight: {{ post.weight }}</h3>
+      <h3>Price: {{ post.price }}</h3>
+      <h3>Breast size: {{ post.breast_size }}</h3>
+    </div>
+{% endfor %}
+
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+        {% for p in photos %}
+        <div class="mb-4">
+          <div class="card">
+            <div class="view overlay" >
+                <a href="{{p.image.url}}"><img class="card-img-top" src="{{p.image.url}}" alt=""></a>
+                <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
